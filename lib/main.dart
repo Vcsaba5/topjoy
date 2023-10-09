@@ -4,5 +4,6 @@ import 'package:topjoy/views/home_view.dart';
 void main() {
   runApp(MaterialApp(
     home: Homeview(),
+    debugShowCheckedModeBanner: false,
   ));
 }

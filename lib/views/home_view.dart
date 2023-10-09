@@ -1,17 +1,24 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:topjoy/controllers/home_view_controller.dart';
+import 'package:topjoy/views/loading_view.dart';
 
 class Homeview extends StatelessWidget {
-  HomeviewController controller = Get.put(HomeviewController());
+
 
   @override
   Widget build(BuildContext context) {
+    HomeviewController controller = Get.put(HomeviewController(context));
     return GetBuilder<HomeviewController>(
       init: controller,
       builder: (_) {
-        return Scaffold(body: Container(
+        return (!controller.isInitialized)
+        ?LoadingView()
+        : Scaffold(
+          body: Container(
         child: Center(
         child: GestureDetector(
           onTap: () {
